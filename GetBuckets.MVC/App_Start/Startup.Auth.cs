@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using GetBuckets.MVC.Models;
+using GetBuckets.Data;
 
 namespace GetBuckets.MVC
 {
