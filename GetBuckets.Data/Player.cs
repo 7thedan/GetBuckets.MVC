@@ -1,18 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GetBuckets.Data
 {
-    public class GetBucket
+    public class Player
     {
         [Key]
-        public string PlayerId { get; set; }
+        public int PlayerID { get; set; }
         [Required]
-        public string FullName { get; set; }
+        [Display(Name = "FirstName")]
+        public string FirstName { get; set; }
+        [Required]
+        [Display(Name ="LastName")]
+        public string LastName { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return (FirstName + "" + LastName);
+            }
+        }
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public string PlayerEmail { get; set; }
         [Required]
         public string UserName { get; set; }
         [Required]
@@ -22,10 +37,14 @@ namespace GetBuckets.Data
         [Required]
         [Display(Name = "What is your Skill/Experience Level?")]
         public string Skill { get; set; }
+        [Required]
         public bool Indoor { get; set; }
+        [Required]
         public bool Outdoor { get; set; }
+        [ForeignKey(nameof(Team))]
         public int TeamID { get; set; }
+        public virtual Team Team { get; set; }
+        [Required]
         public string Location { get; set; }
-
     }
 }
