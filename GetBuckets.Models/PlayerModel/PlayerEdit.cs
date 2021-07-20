@@ -17,7 +17,7 @@ namespace GetBuckets.Models.PlayerModel
         public string PlayerEmail { get; set; }
         [Required]
         [Display(Name = "Player's height ")]
-        public decimal Height { get; set; }
+        public int Height { get; set; }
         [Required]
         [Display(Name = "Player's experienced level in basketball")]
         public string Skill { get; set; }

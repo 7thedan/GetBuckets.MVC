@@ -41,7 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocationServices.cs" />
+    <Compile Include="PlayerServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReviewServices.cs" />
+    <Compile Include="TeamServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GetBuckets.Data\GetBuckets.Data.csproj">
+      <Project>{FED74045-71CD-4050-A1B2-E8A1ADA4836E}</Project>
+      <Name>GetBuckets.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GetBuckets.Models\GetBuckets.Models.csproj">
+      <Project>{D2A9A27E-0BAB-4B1B-BDC2-E808DC1AF315}</Project>
+      <Name>GetBuckets.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

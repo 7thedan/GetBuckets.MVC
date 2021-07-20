@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LocationModel\LocationCreate.cs" />
-    <Compile Include="LocationModel\LocationDelete.cs" />
+    <Compile Include="LocationModel\LocationListItems.cs" />
     <Compile Include="LocationModel\LocationDetail.cs" />
     <Compile Include="LocationModel\LocationEdit.cs" />
     <Compile Include="PlayerModel\PlayerCreate.cs" />
@@ -56,7 +56,7 @@
     <Compile Include="Review\ReviewDetail.cs" />
     <Compile Include="Review\ReviewEdit.cs" />
     <Compile Include="Team\TeamCreate.cs" />
-    <Compile Include="Team\TeamListItem.cs" />
+    <Compile Include="Team\TeamListItems.cs" />
     <Compile Include="Team\TeamDetail.cs" />
     <Compile Include="Team\TeamEdit.cs" />
   </ItemGroup>

@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace GetBuckets.Models.LocationModel
 {
-    class LocationEdit
+    public class LocationEdit
     {
+        public string LocationName { get; set; }
+        public string Street { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
+        public int ZipCode { get; set; }
+        public bool OpenOrClosed { get; set; }
+        public bool Membership { get; set; }
+        public bool Indoor { get; set; }
+        public bool Outdoor { get; set; }
+
     }
 }

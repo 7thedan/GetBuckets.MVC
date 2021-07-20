@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GetBuckets.Models.LocationModel
+namespace GetGuckets.Services
 {
-    class LocationDelete
+    class ReviewServices
     {
     }
 }

@@ -16,14 +16,14 @@ namespace GetBuckets.Models.PlayerModel
         [MinLength(5, ErrorMessage = "Please enter at least 5 characters")]
         public string UserName { get; set; }
         [Required]
-        [Display(Name = "Enter your height ")]
-        public decimal Height { get; set; }
+        [Display(Name = "Enter your height in  ")]
+        public int Height { get; set; }
         [Required]
         [Display(Name = "Enter your experienced level in basketball")]
         public string Skill { get; set; }
         [Required]
         [Display(Name = "What is your the position you play?")]
-        public int Position { get; set; }
+        public string Position { get; set; }
         [Required]
         [Display(Name = "Where is your current location?")]
         public string Location { get; set; }
@@ -32,7 +32,7 @@ namespace GetBuckets.Models.PlayerModel
         public bool Indoor { get; set; }
         [Required]
         [Display(Name ="Do you prefer Outdoor?")]
-        public bool Out { get; set; }
+        public bool Outdoor { get; set; }
 
     }
 }

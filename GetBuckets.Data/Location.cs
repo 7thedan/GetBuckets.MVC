@@ -11,7 +11,8 @@ namespace GetBuckets.Data
     {
         [Key]
         public int LocationID { get; set; }
-        public string Address { get; set; }
+        public string LocationName { get; set; }
+        public string Street { get; set; }
         [Required]
         [Display(Name = "City")]
         public string City { get; set; }
@@ -19,12 +20,14 @@ namespace GetBuckets.Data
         [Display(Name = "State")]
         public string State { get; set; }
         [Required]
+        public int ZipCode { get; set; }
+        [Required]
         [Display(Name = "Name of the Location")]
-        public string LocationOfPlayer
+        public string Address
         {
             get
             {
-                return (Address + " " + City + " " + State);
+                return (Street + " " + City + " " + State + " "+ ZipCode);
             }
         }
         [Required]

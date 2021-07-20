@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GetBuckets.Data
+namespace GetBuckets.Data //only delete migration if you made changes in the data layer. 
 {
     public class Player
     {
@@ -35,8 +35,9 @@ namespace GetBuckets.Data
         [Required]
         public int Height { get; set; }
         [Required]
-        [Display(Name = "What is your Skill/Experience Level?")]
         public string Skill { get; set; }
+        [Required]
+        public string Position { get; set; }
         [Required]
         public bool Indoor { get; set; }
         [Required]
