@@ -12,6 +12,7 @@ namespace GetBuckets.Models.Team
         public int TeamID { get; set; }
         [Required]
         public string TeamName { get; set; }
-        public int LocationID { get; set; }
+        //public int LocationID { get; set; }
+        
     }
 }

@@ -13,6 +13,9 @@ namespace GetBuckets.Data //only delete migration if you made changes in the dat
         [Key]
         public int PlayerID { get; set; }
         [Required]
+        public Guid OwnerID { get; set; }
+
+        [Required]
         [Display(Name = "FirstName")]
         public string FirstName { get; set; }
         [Required]

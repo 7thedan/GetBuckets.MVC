@@ -31,7 +31,11 @@ namespace GetBuckets.Data
             }
         }
         [Required]
-        public bool OpenOrClosed { get; set; }
+        public string HoursOfOperation { get; set; }
+        [Required]
+        public bool Open { get; set; }
+        [Required]
+        public bool Closed { get; set; }
         [Required]
         public bool Membership { get; set; }
         [Required]
