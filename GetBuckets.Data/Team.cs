@@ -15,7 +15,7 @@ namespace GetBuckets.Data
         public string TeamName { get; set; }
 
         [ForeignKey(nameof(Location))]
-        public int LocationID { get; set; }
+        public int? LocationID { get; set; } //if you dont know the location make it nullable. For the sake of knowing. 
         public virtual Location Location { get; set; }
         public ICollection<Player> ListOfPlayers { get; set; }
         public Team()

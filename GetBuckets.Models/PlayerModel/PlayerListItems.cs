@@ -9,6 +9,7 @@ namespace GetBuckets.Models.PlayerModel
 {
    public class PlayerListItems
     {
+        public int PlayerID { get; set; }
         [Required]
         [Display(Name = "Player's Email Address")]
         public string PlayerEmail { get; set; }
@@ -27,6 +28,6 @@ namespace GetBuckets.Models.PlayerModel
         [Display(Name = "Player Preferred to Play Outdoor")]
         public bool Outdoor { get; set; }
         [Display(Name = "Player's Team")]
-        public int TeamID { get; set; }
+        public int? TeamID { get; set; }
     }
 }

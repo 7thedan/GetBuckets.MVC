@@ -13,8 +13,12 @@ namespace GetBuckets.Models.PlayerModel
         [DataType(DataType.EmailAddress)]
         public string PlayerEmail { get; set; }
         [Required]
-        public Guid OwnerID { get; set; }
+        public string FirstName { get; set; }
         [Required]
+        public string LastName { get; set; }
+        [Required]
+        public int Age { get; set; }
+        [Required] 
         [MinLength(5, ErrorMessage = "Please enter at least 5 characters")]
         public string UserName { get; set; }
         [Required]

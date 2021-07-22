@@ -23,7 +23,7 @@ namespace GetBuckets.Models.PlayerModel
         public string Skill { get; set; }
         [Required]
         [Display(Name = "Player's Position")]
-        public int Position { get; set; }
+        public string Position { get; set; }
         [Required]
         [Display(Name = "Player's Location")]
         public string Location { get; set; }
@@ -32,6 +32,6 @@ namespace GetBuckets.Models.PlayerModel
         public bool Indoor { get; set; }
         [Required]
         [Display(Name = "Player Prefer Outdoor?")]
-        public bool Out { get; set; }
+        public bool Outdoor { get; set; }
     }
 }

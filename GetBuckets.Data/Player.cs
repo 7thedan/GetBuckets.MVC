@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GetBuckets.Data //only delete migration if you made changes in the data layer. 
+namespace GetBuckets.Data //only delete migration if you made changes in the data layer. //They would never be a location without player. 
+
+    //Create a user path. 
 {
     public class Player
     {
@@ -46,7 +48,7 @@ namespace GetBuckets.Data //only delete migration if you made changes in the dat
         [Required]
         public bool Outdoor { get; set; }
         [ForeignKey(nameof(Team))]
-        public int TeamID { get; set; }
+        public int? TeamID { get; set; }
         public virtual Team Team { get; set; }
         [Required]
         public string Location { get; set; }

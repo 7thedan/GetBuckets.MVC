@@ -10,11 +10,11 @@ namespace GetGuckets.Services
 {
     public class PlayerServices
     {
-        private readonly Guid _userId;
+        private readonly Guid _userID;
 
-        public PlayerServices(Guid userId)
+        public PlayerServices(Guid userID)
         {
-            _userId = userId;
+            _userID = userID;
         }
 
         public bool CreatePlayer(PlayerCreate model)
@@ -22,8 +22,11 @@ namespace GetGuckets.Services
             var entity =
                 new Player()
                 {
-                    OwnerID = _userId,
+                    OwnerID = _userID,
                     PlayerEmail = model.PlayerEmail,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Age = model.Age,
                     UserName = model.UserName,
                     Height = model.Height,
                     Skill = model.Skill,
@@ -39,18 +42,17 @@ namespace GetGuckets.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<PlayerListItems> GetPlayer()
+        public IEnumerable<PlayerListItems> GetPlayers()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                         .Players
-                        .Where(e => e.OwnerID == _userId)
-                        .Select(
-                        e =>
-                            new PlayerListItems
+                        .Where(e => e.OwnerID == _userID)
+                        .Select(e => new PlayerListItems
                             {
+                                PlayerID = e.PlayerID,
                                 PlayerEmail = e.PlayerEmail,
                                 UserName = e.UserName,
                                 Height = e.Height,
@@ -59,11 +61,36 @@ namespace GetGuckets.Services
                                 Location = e.Location,
                                 Indoor = e.Indoor,
                                 Outdoor = e.Outdoor,
-                                TeamID = e.TeamID
+                                TeamID = (int)e.TeamID
 
                             }
-                            );
+                        );
                 return query.ToArray();
+            }
+        }
+        public PlayerDetail GetPlayerByID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Players
+                        .Single(e => e.PlayerID == id && e.OwnerID == _userID);
+                        return
+                    new PlayerDetail
+                    {
+                        PlayerID = entity.PlayerID,
+                        PlayerEmail = entity.PlayerEmail,
+                        UserName = entity.UserName,
+                        Height = entity.Height,
+                        Skill = entity.Skill,
+                        Position = entity.Position,
+                        Location = entity.Location,
+                        Indoor = entity.Indoor,
+                        Outdoor = entity.Outdoor,
+                        TeamID = (int)entity.TeamID //a way to cast. 
+
+                    };
             }
         }
         public bool UpdatePlayer(PlayerEdit model)
@@ -73,7 +100,7 @@ namespace GetGuckets.Services
                 var entity =
                     ctx
                         .Players
-                        .Single(e => e.PlayerID == model.PlayerID && e.OwnerID == _userId);
+                        .Single(e => e.PlayerID == model.PlayerID && e.OwnerID == _userID);
 
                 entity.PlayerEmail = model.PlayerEmail;
                 entity.UserName = entity.UserName;
@@ -96,7 +123,7 @@ namespace GetGuckets.Services
                 var entity =
                     ctx
                         .Players
-                        .Single(e => e.PlayerID == playerID && e.OwnerID == _userId);
+                        .Single(e => e.PlayerID == playerID && e.OwnerID == _userID);
 
                 ctx.Players.Remove(entity);
 

@@ -22,7 +22,7 @@ namespace GetBuckets.Data
         public virtual Location Location { get; set; }
         public int LocationRating { get; set; }
         public string Address { get; set; }
-        public string Post { get; set; }
+        public string Post { get; set; } //string is nullable. 
         public bool IsRecommended { get; set; }
         [Required]
         [Display(Name = "Created On")]
