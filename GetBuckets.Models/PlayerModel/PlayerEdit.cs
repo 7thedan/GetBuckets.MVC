@@ -9,29 +9,37 @@ namespace GetBuckets.Models.PlayerModel
 {
     public class PlayerEdit
     {
-        [Required]
-        [Display(Name = "Player's ID")]
         public int PlayerID { get; set; }
+        [Required]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Player's Email")]
         public string PlayerEmail { get; set; }
         [Required]
-        [Display(Name = "Player's height ")]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        public int Age { get; set; }
+        [Required]
+        [MinLength(5, ErrorMessage = "Please enter at least 5 characters")]
+        public string UserName { get; set; }
+        [Required]
+        [Display(Name = "Enter your height in cm")]
         public int Height { get; set; }
         [Required]
-        [Display(Name = "Player's experienced level in basketball")]
+        [Display(Name = "Enter your experienced level in basketball")]
         public string Skill { get; set; }
         [Required]
-        [Display(Name = "Player's Position")]
+        [Display(Name = "What is your the position you play?")]
         public string Position { get; set; }
         [Required]
-        [Display(Name = "Player's Location")]
+        [Display(Name = "Where is your current location?")]
         public string Location { get; set; }
         [Required]
-        [Display(Name = "Player Prefer Indoor")]
+        [Display(Name = "Do you prefer Indoor?")]
         public bool Indoor { get; set; }
         [Required]
-        [Display(Name = "Player Prefer Outdoor?")]
+        [Display(Name = "Do you prefer Outdoor?")]
         public bool Outdoor { get; set; }
+        public int? TeamID { get; set; }
     }
 }

@@ -49,7 +49,7 @@ namespace GetBuckets.Data //only delete migration if you made changes in the dat
         public bool Outdoor { get; set; }
         [ForeignKey(nameof(Team))]
         public int? TeamID { get; set; }
-        public virtual Team Team { get; set; }
+        public virtual Team Team { get; set; } //containing the whole thing 
         [Required]
         public string Location { get; set; }
     }

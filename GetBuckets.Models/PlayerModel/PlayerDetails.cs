@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace GetBuckets.Models.PlayerModel
 {
-    public class PlayerCreate
+    public class PlayerDetails
     {
-        
+        public int PlayerID { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
         public string PlayerEmail { get; set; }
@@ -19,7 +19,7 @@ namespace GetBuckets.Models.PlayerModel
         public string LastName { get; set; }
         [Required]
         public int Age { get; set; }
-        [Required] 
+        [Required]
         [MinLength(5, ErrorMessage = "Please enter at least 5 characters")]
         public string UserName { get; set; }
         [Required]
@@ -35,10 +35,10 @@ namespace GetBuckets.Models.PlayerModel
         [Display(Name = "Where is your current location?")]
         public string Location { get; set; }
         [Required]
-        [Display(Name ="Do you prefer Indoor?")]
+        [Display(Name = "Do you prefer Indoor?")]
         public bool Indoor { get; set; }
         [Required]
-        [Display(Name ="Do you prefer Outdoor?")]
+        [Display(Name = "Do you prefer Outdoor?")]
         public bool Outdoor { get; set; }
         public int? TeamID { get; set; }
 

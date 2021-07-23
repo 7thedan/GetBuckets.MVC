@@ -33,7 +33,8 @@ namespace GetGuckets.Services
                     Position = model.Position,
                     Location = model.Location,
                     Indoor = model.Indoor,
-                    Outdoor = model.Outdoor
+                    Outdoor = model.Outdoor,
+                    TeamID = model.TeamID
 
                 };
             using(var ctx = new ApplicationDbContext())
@@ -52,23 +53,26 @@ namespace GetGuckets.Services
                         .Where(e => e.OwnerID == _userID)
                         .Select(e => new PlayerListItems
                             {
-                                PlayerID = e.PlayerID,
-                                PlayerEmail = e.PlayerEmail,
-                                UserName = e.UserName,
-                                Height = e.Height,
-                                Skill = e.Skill,
-                                Position = e.Position,
-                                Location = e.Location,
-                                Indoor = e.Indoor,
-                                Outdoor = e.Outdoor,
-                                TeamID = (int)e.TeamID
+                            PlayerID = e.PlayerID,
+                            PlayerEmail = e.PlayerEmail,
+                            FirstName = e.FirstName,
+                            LastName = e.LastName,
+                            Age = e.Age,
+                            UserName = e.UserName,
+                            Height = e.Height,
+                            Skill = e.Skill,
+                            Position = e.Position,
+                            Location = e.Location,
+                            Indoor = e.Indoor,
+                            Outdoor = e.Outdoor,
+                            TeamName = e.Team.TeamName
 
-                            }
+                        }
                         );
                 return query.ToArray();
             }
         }
-        public PlayerDetail GetPlayerByID(int id)
+        public PlayerDetails GetPlayerByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -77,10 +81,12 @@ namespace GetGuckets.Services
                         .Players
                         .Single(e => e.PlayerID == id && e.OwnerID == _userID);
                         return
-                    new PlayerDetail
+                    new PlayerDetails
                     {
-                        PlayerID = entity.PlayerID,
                         PlayerEmail = entity.PlayerEmail,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+                        Age = entity.Age,
                         UserName = entity.UserName,
                         Height = entity.Height,
                         Skill = entity.Skill,
@@ -88,7 +94,7 @@ namespace GetGuckets.Services
                         Location = entity.Location,
                         Indoor = entity.Indoor,
                         Outdoor = entity.Outdoor,
-                        TeamID = (int)entity.TeamID //a way to cast. 
+                       /* TeamID = (int)entity.TeamID *///a way to cast. 
 
                     };
             }
@@ -103,13 +109,17 @@ namespace GetGuckets.Services
                         .Single(e => e.PlayerID == model.PlayerID && e.OwnerID == _userID);
 
                 entity.PlayerEmail = model.PlayerEmail;
-                entity.UserName = entity.UserName;
-                entity.Height = entity.Height;
-                entity.Skill = entity.Skill;
-                entity.Position = entity.Position;
-                entity.Location = entity.Location;
-                entity.Indoor = entity.Indoor;
-                entity.Outdoor = entity.Outdoor;
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.UserName = model.UserName;
+                entity.Age = model.Age;
+                entity.Height = model.Height;
+                entity.Skill = model.Skill;
+                entity.Position = model.Position;
+                entity.Location = model.Location;
+                entity.Indoor = model.Indoor;
+                entity.Outdoor = model.Outdoor;
+                entity.TeamID = model.TeamID;
 
                 return ctx.SaveChanges() == 1;
 

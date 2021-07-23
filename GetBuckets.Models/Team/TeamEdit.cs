@@ -11,6 +11,6 @@ namespace GetBuckets.Models.Team
     {
         [Required]
         public string TeamName { get; set; }
-       //bring foreignKey for locaiton?
+       
     }
 }

@@ -102,14 +102,13 @@ namespace GetBuckets.MVC.Controllers
             var model =
                     new PlayerEdit
                     {
-                        PlayerID = detail.PlayerID,
                         PlayerEmail = detail.PlayerEmail,
                         Height = detail.Height,
                         Skill = detail.Skill,
                         Position = detail.Position,
                         Location = detail.Location,
                         Indoor = detail.Indoor,
-                        Outdoor = detail.Outdoor
+                        Outdoor = detail.Outdoor,
                     };
             return View(model);
         }

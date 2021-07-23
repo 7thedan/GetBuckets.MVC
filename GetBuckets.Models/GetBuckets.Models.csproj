@@ -48,7 +48,7 @@
     <Compile Include="LocationModel\LocationEdit.cs" />
     <Compile Include="PlayerModel\PlayerCreate.cs" />
     <Compile Include="PlayerModel\PlayerListItems.cs" />
-    <Compile Include="PlayerModel\PlayerDetail.cs" />
+    <Compile Include="PlayerModel\PlayerDetails.cs" />
     <Compile Include="PlayerModel\PlayerEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review\ReviewCreate.cs" />
