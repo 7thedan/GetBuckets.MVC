@@ -33,8 +33,10 @@ namespace GetBuckets.Models.LocationModel
         [Display(Name = "Is the facility still Open")]
         public bool Open { get; set; }
         [Required]
-        [Display(Name = "Is the facility closed for good?")]
+        [Display(Name = "Is the facility still operational?")]
         public bool Closed { get; set; }
+        [Required]
+        public string HoursOfOperation { get; set; }
         [Required]
         [Display(Name = "Does it require membership?")]
         public bool Memembership { get; set; }

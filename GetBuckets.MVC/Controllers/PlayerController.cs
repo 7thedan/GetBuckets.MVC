@@ -81,18 +81,18 @@ namespace GetBuckets.MVC.Controllers
 
             if (model.PlayerID != id)
             {
-                ModelState.AddModelError("", "Id Mismatch");
+                ModelState.AddModelError("", "ID Mismatch");
                 return View(model);
             }
 
             var service = CreatePlayerService();
             if (service.UpdatePlayer(model))
             {
-                TempData["SaveResult"] = "Your note was updated.";
+                TempData["SaveResult"] = "Your player was updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your note could not be updated");
+            ModelState.AddModelError("", "Your player could not be updated");
             return View();
         }
         public ActionResult Edit(int id)
@@ -131,7 +131,7 @@ namespace GetBuckets.MVC.Controllers
 
             service.DeletePlayer(id);
 
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "Your player was deleted";
             return RedirectToAction("Index");
         }
 
