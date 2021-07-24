@@ -11,7 +11,9 @@ namespace GetBuckets.Data
     {
         [Key]
         public int LocationID { get; set; }
+        [Required]
         public string LocationName { get; set; }
+        [Required]
         public string Street { get; set; }
         [Required]
         [Display(Name = "City")]
