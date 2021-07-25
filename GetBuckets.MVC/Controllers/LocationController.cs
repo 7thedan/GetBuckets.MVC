@@ -1,4 +1,6 @@
 ﻿using GetBuckets.Models.LocationModel;
+using GetGuckets.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +12,11 @@ namespace GetBuckets.MVC.Controllers
     [Authorize]
     public class LocationController : Controller
     {
-        // GET: Location
         public ActionResult Index()
         {
-            var userID = Guid.Parse(User.Identity.GetUserId());
-            var service = new LocationServices(userID);
-            var model = service.GetPlayers();
+            var model = new LocationListItems[0];
+
+            return View();
         }
         public ActionResult Create()
         {
@@ -29,22 +30,26 @@ namespace GetBuckets.MVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateLocationService();
+
+            if (service.CreateLocation(model))
             {
-                ViewBag.SaveResult = "Your location was created.";
+                TempData["SaveResult"] = "Your location was created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Location could not be created");
-            return View(location); 
-        }
+            ModelState.AddModelError("", "Location could not be created.");
 
-        private LocationServices LocationServices()
+            return View(model);
+        }
+        private LocationServices CreateLocationService()
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new LocationServices(userID);
+
             return service;
         }
-        public ActionResult Detail(int id)
+
+        public ActionResult Details(int id)
         {
             var svc = CreateLocationService();
             var model = svc.GetLocationByID(id);
@@ -58,7 +63,7 @@ namespace GetBuckets.MVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if(model.PlayerID != id)
+            if(model.LocationID != id)
             {
                 ModelState.AddModelError("", "ID Mismatch");
                 return View(model);
@@ -67,35 +72,34 @@ namespace GetBuckets.MVC.Controllers
             var service = CreateLocationService();
             if (service.UpdateLocation(model))
             {
-                TempData["SaveResult"] = "Your location was updated";
+                TempData["SaveResult"] = "Your location was updated.";
                 return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Your location could not be updated");
             return View();
         }
-
         public ActionResult Edit(int id)
         {
             var service = CreateLocationService();
             var detail = service.GetLocationByID(id);
             var model =
-                new LocationEdit
-                {
-                    LocationName = service.LocationName,
-                    Street = service.Street,
-                    State = service.State,
-                    City = service.City,
-                    ZipCode = service.ZipCode,
-                    Open = service.Open,
-                    Closed = service.Closed,
-                    HoursOfOperation = service.HoursOfOperation,
-                    Memembership = service.Membership,
-                    Indoor = service.Indoor,
-                    Outdoor = service.Outdoor
-                };
+                    new LocationEdit
+                    {
+                        LocationName = detail.LocationName,
+                        Street = detail.Street,
+                        City = detail.City,
+                        State = detail.State,
+                        ZipCode = detail.ZipCode,
+                        Open = detail.Open,
+                        Closed = detail.Closed,
+                        HoursOfOperation = detail.HoursOfOperation,
+                        Indoor = detail.Indoor,
+                        Outdoor = detail.Outdoor,
+                    };
             return View(model);
         }
+
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
@@ -108,13 +112,12 @@ namespace GetBuckets.MVC.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeletePost(int id)
+        public ActionResult DeleteLocation(int id)
         {
             var service = CreateLocationService();
-
             service.DeleteLocation(id);
 
-            TempData["SaveResult"] = "Your location was deleted";
+            TempData["SaveResult"] = "Your note was deleted";
             return RedirectToAction("Index");
         }
     }

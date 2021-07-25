@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace GetGuckets.Services
 {
     public class LocationServices
     {
         private readonly Guid _userID;
-        private LocationServices(Guid userID)
+        public LocationServices(Guid userID)
         {
             _userID = userID;
         }
@@ -45,16 +46,91 @@ namespace GetGuckets.Services
             {
                 var query =
                   ctx
-                      .Players
-                      .Where(e => e.OwnerID == _userID)
+                      .Locations
                       .Select(e => new LocationListItems
                       {
-                         
-
-
-
+                         LocationID = e.LocationID,
+                         LocationName = e.LocationName,
+                         Street = e.Street,
+                         City = e.City,
+                         State = e.State,
+                         ZipCode = e.ZipCode,
+                         Open = e.Open,
+                         Closed = e.Closed,
+                         HoursOfOperation = e.HoursOfOperation,
+                         Memembership = e.Membership,
+                         Indoor = e.Indoor,
+                         Outdoor = e.Outdoor
                       }
                       );
+                return query.ToArray();
+            }
+        }
+
+        public LocationDetail GetLocationByID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationID == e.LocationID);
+
+                return
+                new LocationDetail
+                {
+                    LocationID = entity.LocationID,
+                    LocationName = entity.LocationName,
+                    Street = entity.Street,
+                    City = entity.City,
+                    State = entity.State,
+                    ZipCode = entity.ZipCode,
+                    Open = entity.Open,
+                    Closed = entity.Closed,
+                    HoursOfOperation = entity.HoursOfOperation,
+                    Memembership = entity.Membership,
+                    Indoor = entity.Indoor,
+                    Outdoor = entity.Outdoor
+                };
+            }
+        }
+
+        public bool UpdateLocation(LocationEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationID == e.LocationID);
+
+                entity.LocationName = model.LocationName;
+                entity.Street = model.Street;
+                entity.City = model.City;
+                entity.ZipCode = model.ZipCode;
+                entity.Open = model.Open;
+                entity.Closed = model.Closed;
+                entity.HoursOfOperation = model.HoursOfOperation;
+                entity.Membership = model.Memembership;
+                entity.Indoor = model.Indoor;
+                entity.Outdoor = model.Outdoor;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteLocation(int locationID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Locations
+                        .Single(e => e.LocationID == e.LocationID);
+
+                ctx.Locations.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
