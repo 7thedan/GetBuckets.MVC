@@ -60,6 +60,7 @@
     <Compile Include="Migrations\202107250324198_LocationDB.Designer.cs">
       <DependentUpon>202107250324198_LocationDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107251951432_Player\LocationDB.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

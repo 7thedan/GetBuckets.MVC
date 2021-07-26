@@ -14,9 +14,11 @@ namespace GetBuckets.MVC.Controllers
     {
         public ActionResult Index()
         {
-            var model = new LocationListItems[0];
+            var userID = Guid.Parse(User.Identity.GetUserId()); //go get the userid. 
+            var service = new LocationServices(userID); //start the service. If the user is valid.
+            var model = service.GetLocations(); //the model is all locations. 
 
-            return View();
+            return View(model); //return model on line 21 as you're index. 
         }
         public ActionResult Create()
         {
@@ -27,6 +29,7 @@ namespace GetBuckets.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(LocationCreate model)
         {
+            //
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateLocationService();

@@ -9,16 +9,20 @@ namespace GetBuckets.Models.Review
 {
    public class ReviewCreate
     {
+        public int ReviewID { get; set; }
         public int PlayerID { get; set; }
+        public int LocationID { get; set; }
         [Required]
-        [Display(Name = "Rate the Location")]
-        public int LocationRating { get; set; }
-        [MaxLength(500, ErrorMessage = "There are too many characteres in this field")]
-        public string Post { get; set; }
         public string Address { get; set; }
-        [Display(Name = "Would you recommend this location to your friends?")]
+        [Display(Name = "Leave your experience of the court")]
+        public string Comment { get; set; }
+        [Required]
+        [Display(Name = "Would you recommend this court to your friends?")]
         public bool IsRecommended { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }
+        [Required]
+        [Display(Name = "What rating would you give of the court?")]
+        public int LocationRating { get; set; }
+        public DateTimeOffset DateCreated { get; set; }
 
     }
 }

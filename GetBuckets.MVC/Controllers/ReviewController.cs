@@ -1,4 +1,5 @@
 ﻿using GetBuckets.Models.Review;
+using GetGuckets.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,11 @@ namespace GetBuckets.MVC.Controllers
         // GET: Review
         public ActionResult Index()
         {
-            var location = new ReviewListItems[0];
-            return View();
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new ReviewServices(userID);
+            var model = service.GetReviews();
+
+            return View(model);
         }
 
         public ActionResult Create()
