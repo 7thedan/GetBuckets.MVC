@@ -9,6 +9,7 @@ namespace GetBuckets.Models.LocationModel
 {
     public class LocationDetail
     {
+
         public int LocationID { get; set; }
         public string LocationName { get; set; }
         public string Address

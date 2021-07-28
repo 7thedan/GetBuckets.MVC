@@ -22,6 +22,7 @@ namespace GetGuckets.Services
             var entity =
                 new Location()
                 {
+                    //OwnerID = _userID, revisit this with LA.
                     LocationName = model.LocationName,
                     Street = model.Street,
                     City = model.City,

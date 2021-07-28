@@ -94,6 +94,7 @@ namespace GetGuckets.Services
                         Location = entity.Location,
                         Indoor = entity.Indoor,
                         Outdoor = entity.Outdoor,
+                        TeamID = entity.Team.TeamID
                        /* TeamID = (int)entity.TeamID *///a way to cast. 
 
                     };

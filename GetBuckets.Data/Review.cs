@@ -14,7 +14,6 @@ namespace GetBuckets.Data
         public Guid OwnerID { get; set; }
         [Key]
         public int ReviewID { get; set; }
-
         [ForeignKey(nameof(Player))]
         public int PlayerID { get; set; }
         public virtual Player Player { get; set; }
@@ -22,7 +21,7 @@ namespace GetBuckets.Data
         public int LocationID { get; set; } 
         public virtual Location Location { get; set; }
         public int LocationRating { get; set; }
-        public string Address { get; set; }
+        //public string Address { get; set; }
         public string Comment { get; set; } //string is nullable. 
         public bool IsRecommended { get; set; }
         [Required]

@@ -7,13 +7,13 @@ namespace GetBuckets.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class LocationDB : IMigrationMetadata
+    public sealed partial class SecondMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(LocationDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SecondMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202107250324198_LocationDB"; }
+            get { return "202107280116388_SecondMigration"; }
         }
         
         string IMigrationMetadata.Source

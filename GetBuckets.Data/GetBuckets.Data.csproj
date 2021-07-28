@@ -56,11 +56,14 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\202107250324198_LocationDB.cs" />
-    <Compile Include="Migrations\202107250324198_LocationDB.Designer.cs">
-      <DependentUpon>202107250324198_LocationDB.cs</DependentUpon>
+    <Compile Include="Migrations\202107280008348_first-migration.cs" />
+    <Compile Include="Migrations\202107280008348_first-migration.Designer.cs">
+      <DependentUpon>202107280008348_first-migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107251951432_Player\LocationDB.cs" />
+    <Compile Include="Migrations\202107280116388_SecondMigration.cs" />
+    <Compile Include="Migrations\202107280116388_SecondMigration.Designer.cs">
+      <DependentUpon>202107280116388_SecondMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,8 +75,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107250324198_LocationDB.resx">
-      <DependentUpon>202107250324198_LocationDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107280008348_first-migration.resx">
+      <DependentUpon>202107280008348_first-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107280116388_SecondMigration.resx">
+      <DependentUpon>202107280116388_SecondMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

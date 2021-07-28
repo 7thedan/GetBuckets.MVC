@@ -22,8 +22,12 @@ namespace GetBuckets.MVC.Controllers
         }
         public ActionResult Create()
         {
+            var userID = Guid.Parse(User.Identity.GetUserId()); //go get the userid. 
+            ViewBag.PlayerList = new PlayerServices(userID).GetPlayers();  //start the service. If the user is valid.
+
             return View();
         }
+        //name
 
         [HttpPost]
         [ValidateAntiForgeryToken]

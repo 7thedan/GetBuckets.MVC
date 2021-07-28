@@ -23,8 +23,7 @@ namespace GetBuckets.Data
         public string State { get; set; }
         [Required]
         public int ZipCode { get; set; }
-        [Required]
-        [Display(Name = "Name of the Location")]
+        [Display(Name = "Address")]
         public string Address
         {
             get
@@ -54,5 +53,7 @@ namespace GetBuckets.Data
             ListOfReviews = new HashSet<Review>();
         }
        
+        //foreach within your servie layer. 
+        //Use one of the models list of players, team and reviews to return it the way you want the data structured. manipulate of 
     }
 }

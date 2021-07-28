@@ -22,11 +22,13 @@ namespace GetGuckets.Services
                 new Review()
                 {
                     OwnerID = _userID,
-                    Address = model.Address,
+                    
+                    PlayerID = model.PlayerID,
+                    LocationID = model.LocationID,
                     Comment = model.Comment,
                     IsRecommended = model.IsRecommended,
                     LocationRating = model.LocationRating,
-                    DateCreated = model.DateCreated,
+                   
 
 
                 };
@@ -50,9 +52,8 @@ namespace GetGuckets.Services
                            new ReviewListItems
                             {
                               ReviewID = e.ReviewID,
-                              PlayerID = e.PlayerID,
-                              LocationID = e.LocationID,
-                              Address = e.Address,
+                              UserName = e.Player.UserName,
+                              LocationName = e.Location.LocationName,
                               Comment = e.Comment,
                               IsRecommended = e.IsRecommended,
                               LocationRating = e.LocationRating,
@@ -75,9 +76,9 @@ namespace GetGuckets.Services
             new ReviewDetail
             {
                 ReviewID = entity.ReviewID,
-                PlayerID = entity.PlayerID,
-                LocationID = entity.LocationID,
-                Address = entity.Address,
+                UserName = entity.Player.UserName,
+                LocationName = entity.Location.LocationName,
+                Address = entity.Location.Address,
                 Comment = entity.Comment,
                 IsRecommended = entity.IsRecommended,
                 LocationRating = entity.LocationRating,
@@ -97,7 +98,8 @@ namespace GetGuckets.Services
                         .Reviews
                         .Single(e => e.ReviewID == model.ReviewID && e.OwnerID == _userID);
 
-                entity.Address = model.Address;
+                entity.Player.UserName = model.UserName;
+                entity.Location.LocationName = model.LocationName;
                 entity.Comment = model.Comment;
                 entity.IsRecommended = model.IsRecommended;
                 entity.LocationRating = model.LocationRating;
