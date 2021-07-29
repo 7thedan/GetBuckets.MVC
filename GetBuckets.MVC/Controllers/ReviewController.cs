@@ -24,8 +24,10 @@ namespace GetBuckets.MVC.Controllers
 
         public ActionResult Create()
         {
+
             var userID = Guid.Parse(User.Identity.GetUserId()); //go get the userid. 
             ViewBag.LocationList = new LocationServices(userID).GetLocations();
+            ViewBag.PlayerList = new PlayerServices(userID).GetPlayers();
 
             return View();
         }

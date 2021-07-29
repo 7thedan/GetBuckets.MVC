@@ -64,6 +64,10 @@
     <Compile Include="Migrations\202107280116388_SecondMigration.Designer.cs">
       <DependentUpon>202107280116388_SecondMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107281956485_AddedTeamDB.cs" />
+    <Compile Include="Migrations\202107281956485_AddedTeamDB.Designer.cs">
+      <DependentUpon>202107281956485_AddedTeamDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107280116388_SecondMigration.resx">
       <DependentUpon>202107280116388_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107281956485_AddedTeamDB.resx">
+      <DependentUpon>202107281956485_AddedTeamDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

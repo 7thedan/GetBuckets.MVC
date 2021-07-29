@@ -12,6 +12,8 @@ namespace GetBuckets.Data
     {
         [Key]
         public int TeamID { get; set; }
+        [Required]
+        public Guid OwnerID { get; set; }
         public string TeamName { get; set; }
 
         [ForeignKey(nameof(Location))]

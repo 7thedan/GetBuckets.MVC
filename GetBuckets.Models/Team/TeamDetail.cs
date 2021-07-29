@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 namespace GetBuckets.Models.Team
 {
    public class TeamDetail
-    {
+    {   
+        public int TeamID { get; set; }
         [Required]
         public string TeamName { get; set; }
+        public string LocationName { get; set; }
+        public string PlayerID { get; set; }
     }
 }
