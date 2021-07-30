@@ -28,6 +28,7 @@ namespace GetGuckets.Services
                     Comment = model.Comment,
                     IsRecommended = model.IsRecommended,
                     LocationRating = model.LocationRating,
+                    DateCreated = DateTimeOffset.Now //upon creation it will populate it with date and time! Decoration on the fields and date time to display! 
                    
 
 
@@ -72,8 +73,7 @@ namespace GetGuckets.Services
                         .Reviews
                         .Single(e => e.OwnerID == _userID);
 
-                return
-            new ReviewDetail
+                return new ReviewDetail
             {
                 ReviewID = entity.ReviewID,
                 UserName = entity.Player.UserName,

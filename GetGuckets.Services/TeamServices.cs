@@ -22,8 +22,8 @@ namespace GetGuckets.Services
                 new Team()
                 {
                     OwnerID = _userID,
-                    TeamID = model.TeamID,
                     TeamName = model.TeamName,
+                    LocationID = model.LocationID
 
                 };
             using(var ctx = new ApplicationDbContext())
@@ -62,12 +62,13 @@ namespace GetGuckets.Services
                         .Teams
                         .Single(e => e.TeamID == id && e.OwnerID == _userID);
 
-                return
+                    return
                     new TeamDetail
                     {
                         TeamID = entity.TeamID,
                         TeamName = entity.TeamName,
                         LocationName = entity.Location.LocationName
+                        
                     };
             }
         }

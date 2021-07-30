@@ -3,7 +3,7 @@ namespace GetBuckets.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class firstmigration : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -57,6 +57,7 @@ namespace GetBuckets.Data.Migrations
                 c => new
                     {
                         TeamID = c.Int(nullable: false, identity: true),
+                        OwnerID = c.Guid(nullable: false),
                         TeamName = c.String(),
                         LocationID = c.Int(),
                     })
@@ -70,7 +71,6 @@ namespace GetBuckets.Data.Migrations
                     {
                         ReviewID = c.Int(nullable: false, identity: true),
                         OwnerID = c.Guid(nullable: false),
-                        LocationName = c.String(nullable: false),
                         PlayerID = c.Int(nullable: false),
                         LocationID = c.Int(nullable: false),
                         LocationRating = c.Int(nullable: false),

@@ -52,7 +52,7 @@ namespace GetGuckets.Services
                         .Players
                         .Where(e => e.OwnerID == _userID)
                         .Select(e => new PlayerListItems
-                            {
+                         {
                             PlayerID = e.PlayerID,
                             PlayerEmail = e.PlayerEmail,
                             FirstName = e.FirstName,
@@ -80,9 +80,10 @@ namespace GetGuckets.Services
                     ctx
                         .Players
                         .Single(e => e.PlayerID == id && e.OwnerID == _userID);
-                        return
-                    new PlayerDetails
+
+                return new PlayerDetails
                     {
+                        PlayerID = entity.PlayerID,
                         PlayerEmail = entity.PlayerEmail,
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
@@ -94,7 +95,7 @@ namespace GetGuckets.Services
                         Location = entity.Location,
                         Indoor = entity.Indoor,
                         Outdoor = entity.Outdoor,
-                        TeamID = entity.Team.TeamID
+                        TeamID = entity.TeamID
                        /* TeamID = (int)entity.TeamID *///a way to cast. 
 
                     };

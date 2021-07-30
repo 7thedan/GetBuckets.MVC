@@ -75,9 +75,10 @@ namespace GetGuckets.Services
                 var entity =
                     ctx
                         .Locations
-                        .Single(e => e.LocationID == e.LocationID);
+                        .Single(e => e.LocationID == id);
 
                 return
+
                 new LocationDetail
                 {
                     LocationID = entity.LocationID,
@@ -103,7 +104,7 @@ namespace GetGuckets.Services
                 var entity =
                     ctx
                         .Locations
-                        .Single(e => e.LocationID == e.LocationID);
+                        .Single(e => e.LocationID == model.LocationID);
 
                 entity.LocationName = model.LocationName;
                 entity.Street = model.Street;
@@ -127,7 +128,7 @@ namespace GetGuckets.Services
                 var entity =
                     ctx
                         .Locations
-                        .Single(e => e.LocationID == e.LocationID);
+                        .Single(e => e.LocationID == locationID);
 
                 ctx.Locations.Remove(entity);
 

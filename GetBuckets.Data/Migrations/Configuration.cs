@@ -10,6 +10,7 @@ namespace GetBuckets.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "GetBuckets.Data.ApplicationDbContext";
         }
 
         protected override void Seed(GetBuckets.Data.ApplicationDbContext context)

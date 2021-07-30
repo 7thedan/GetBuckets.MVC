@@ -56,17 +56,13 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\202107280008348_first-migration.cs" />
-    <Compile Include="Migrations\202107280008348_first-migration.Designer.cs">
-      <DependentUpon>202107280008348_first-migration.cs</DependentUpon>
+    <Compile Include="Migrations\202107292356431_InitialCreate.cs" />
+    <Compile Include="Migrations\202107292356431_InitialCreate.Designer.cs">
+      <DependentUpon>202107292356431_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107280116388_SecondMigration.cs" />
-    <Compile Include="Migrations\202107280116388_SecondMigration.Designer.cs">
-      <DependentUpon>202107280116388_SecondMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107281956485_AddedTeamDB.cs" />
-    <Compile Include="Migrations\202107281956485_AddedTeamDB.Designer.cs">
-      <DependentUpon>202107281956485_AddedTeamDB.cs</DependentUpon>
+    <Compile Include="Migrations\202107300001288_new.cs" />
+    <Compile Include="Migrations\202107300001288_new.Designer.cs">
+      <DependentUpon>202107300001288_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
@@ -79,14 +75,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107280008348_first-migration.resx">
-      <DependentUpon>202107280008348_first-migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107292356431_InitialCreate.resx">
+      <DependentUpon>202107292356431_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107280116388_SecondMigration.resx">
-      <DependentUpon>202107280116388_SecondMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107281956485_AddedTeamDB.resx">
-      <DependentUpon>202107281956485_AddedTeamDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107300001288_new.resx">
+      <DependentUpon>202107300001288_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

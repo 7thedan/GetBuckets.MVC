@@ -26,6 +26,7 @@ namespace GetBuckets.MVC.Controllers
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             ViewBag.PlayerList = new PlayerServices(userID).GetPlayers();
+            ViewBag.LocationList = new LocationServices(userID).GetLocations();
 
             return View();
         }
@@ -53,6 +54,7 @@ namespace GetBuckets.MVC.Controllers
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new TeamServices(userID);
+
 
             return service;
         }
