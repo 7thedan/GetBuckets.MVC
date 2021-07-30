@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Player0</h2>
+<h2>Player</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -91,7 +91,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PlayerID }) |
             @Html.ActionLink("Details" @*display what you want in the front,*@, "Detail", new { id=item.PlayerID }) | @*what method you want to look at which is detail*@
-            @Html.ActionLink("Delete", "Delete", new {  id=item.PlayerID}) |
+            @Html.ActionLink("Delete", "Detail", new {  id=item.PlayerID}) |
         </td>
     </tr>
 

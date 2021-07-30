@@ -71,7 +71,7 @@ namespace GetGuckets.Services
                 var entity =
                     ctx
                         .Reviews
-                        .Single(e => e.OwnerID == _userID);
+                        .Single(e => e.ReviewID == id && e.OwnerID == _userID);
 
                 return new ReviewDetail
             {
