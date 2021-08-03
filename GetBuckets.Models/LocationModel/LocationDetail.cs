@@ -44,6 +44,9 @@ namespace GetBuckets.Models.LocationModel
         [Required]
         [Display(Name = "Outdoor friendly?")]
         public bool Outdoor { get; set; }
+        public virtual ICollection<GetBuckets.Data.Player> ListOfPlayers { get; set; }
+        public virtual ICollection<GetBuckets.Data.Team> ListOfTeams { get; set; }
+        public virtual ICollection<GetBuckets.Data.Review> ListOfReviews { get; set; }
 
     }
 }

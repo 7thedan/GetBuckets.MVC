@@ -67,8 +67,8 @@ namespace GetGuckets.Services
                     {
                         TeamID = entity.TeamID,
                         TeamName = entity.TeamName,
-                        LocationName = entity.Location.LocationName
-                        
+                        LocationName = entity.Location.LocationName,
+                        ListOfPlayers = entity.ListOfPlayers
                     };
             }
         }

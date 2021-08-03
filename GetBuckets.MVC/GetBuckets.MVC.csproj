@@ -244,19 +244,19 @@
     <Content Include="Views\Location\Create.cshtml" />
     <Content Include="Views\Location\Details.cshtml" />
     <Content Include="Views\Location\Delete.cshtml" />
-    <Content Include="Views\Location\Edit.cshtml" />
     <Content Include="Views\Review\Index.cshtml" />
     <Content Include="Views\Review\Create.cshtml" />
     <Content Include="Views\Review\Details.cshtml" />
     <Content Include="Views\Review\Edit.cshtml" />
-    <Content Include="Views\Review\Delete.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\Team\Details.cshtml" />
-    <Content Include="Views\Team\Edit.cshtml" />
-    <Content Include="Views\Team\Delete.cshtml" />
     <Content Include="Views\Player\Edit.cshtml" />
     <Content Include="Views\Player\Detail.cshtml" />
+    <Content Include="Views\Team\Edit.cshtml" />
+    <Content Include="Views\Location\Edit.cshtml" />
+    <Content Include="Views\Review\Delete.cshtml" />
+    <Content Include="Views\Team\Delete.cshtml" />
     <Content Include="Views\Player\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>

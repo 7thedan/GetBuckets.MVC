@@ -112,6 +112,7 @@ namespace GetBuckets.MVC.Controllers
                         Location = detail.Location,
                         Indoor = detail.Indoor,
                         Outdoor = detail.Outdoor,
+                        TeamID = detail.TeamID
                     };
             return View(model);
         }

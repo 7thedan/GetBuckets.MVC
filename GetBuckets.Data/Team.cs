@@ -20,10 +20,10 @@ namespace GetBuckets.Data
         public int? LocationID { get; set; } //if you dont know the location make it nullable. For the sake of knowing. 
         public virtual Location Location { get; set; }
         public virtual ICollection<Player> ListOfPlayers { get; set; }
-        //public Team()
-        //{
-        //    ListOfPlayers = new HashSet<Player>();
-        //}
+        public Team()
+        {
+            ListOfPlayers = new HashSet<Player>();
+        }
 
     }
 }

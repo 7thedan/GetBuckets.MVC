@@ -75,7 +75,7 @@ namespace GetGuckets.Services
                 var entity =
                     ctx
                         .Locations
-                        .Single(e => e.LocationID == id);
+                        .Single(e => e.LocationID == id );
 
                 return
 
@@ -92,7 +92,10 @@ namespace GetGuckets.Services
                     HoursOfOperation = entity.HoursOfOperation,
                     Memembership = entity.Membership,
                     Indoor = entity.Indoor,
-                    Outdoor = entity.Outdoor
+                    Outdoor = entity.Outdoor,
+                    ListOfPlayers = entity.ListOfPlayers,
+                    ListOfTeams = entity.ListOfTeams,
+                    ListOfReviews = entity.ListOfReviews
                 };
             }
         }

@@ -101,6 +101,57 @@
         </dd>
 
     </dl>
+
+      @*<table class="col-md-4">
+        <tr>
+            <th>
+                Player's' Name
+            </th>
+        </tr>
+        @foreach (var player in Model.ListOfPlayers)
+        {
+            <tr>
+                <td>
+                    @player.FullName
+                </td>
+            </tr>
+        }
+
+    </table>*@
+
+    <table class="col-md-6">
+        <tr>
+            <th>
+                Team's Name
+            </th>
+        </tr>
+        @foreach (var team in Model.ListOfTeams)
+        {
+            <tr>
+                <td>
+                    @team.TeamName
+                </td>
+            </tr>
+        }
+    </table>
+
+    <table class="col-md-6">
+        <tr>
+            <th>
+                Review for the Location
+            </th>
+        </tr>
+        @foreach (var location in Model.ListOfReviews)
+        {
+            <tr>
+                <td>
+                    @location.LocationRating <br />
+                    @location.Comment
+                </td>
+            </tr>
+        }
+    </table>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.LocationID  }) |

@@ -27,7 +27,7 @@ namespace GetBuckets.Data //only delete migration if you made changes in the dat
         {
             get
             {
-                return (FirstName + "" + LastName);
+                return (FirstName + " " + LastName);
             }
         }
         [Required]

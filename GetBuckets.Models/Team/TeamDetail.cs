@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace GetBuckets.Models.Team
         [Required]
         public string TeamName { get; set; }
         public string LocationName  { get; set; }
-        public string PlayerID { get; set; }
+        public virtual ICollection<GetBuckets.Data.Player> ListOfPlayers { get; set; }
     }
 }
