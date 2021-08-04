@@ -9,7 +9,7 @@ namespace GetBuckets.Models.LocationModel
 {
     public class LocationCreate
     {
-
+        public int PlayerID { get; set; }
         [Required]
         [MinLength(0, ErrorMessage = "Please enter character")]
         [MaxLength(30, ErrorMessage = "There are too many charcters in this field")]

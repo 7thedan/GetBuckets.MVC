@@ -27,7 +27,7 @@ namespace GetBuckets.Data //only delete migration if you made changes in the dat
         {
             get
             {
-                return (FirstName + "" + LastName);
+                return (FirstName + " " + LastName);
             }
         }
         [Required]
@@ -47,8 +47,9 @@ namespace GetBuckets.Data //only delete migration if you made changes in the dat
         public bool Indoor { get; set; }
         [Required]
         public bool Outdoor { get; set; }
-        [ForeignKey(nameof(Team))]
+        
         public int? TeamID { get; set; }
+        [ForeignKey(nameof(TeamID))]
         public virtual Team Team { get; set; } //containing the whole thing 
         [Required]
         public string Location { get; set; }

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GetBuckets.Models.Team.TeamListItems>
+
+@*@using GetBuckets.Models.PlayerModel
+
+    @foreach (Player player in Model.ToList)
+        <div>@player.UserName</div>*@
+
+<h2>Join our community of Teams!</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<p>
+    <img src="https://i.pinimg.com/originals/75/4d/0f/754d0fdc536e5bf2f30a692e35853506.jpg"
+         alt="Trulli" width="1150" height="600">
+</p>
+
+<table class="table">
+    <tr>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TeamID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TeamID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TeamID })
+            </td>
+        </tr>
+    }
+
+
+</table>

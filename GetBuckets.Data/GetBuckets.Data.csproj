@@ -56,17 +56,33 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\202107212139547_InitialMigration.cs" />
-    <Compile Include="Migrations\202107212139547_InitialMigration.Designer.cs">
-      <DependentUpon>202107212139547_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202107292356431_InitialCreate.cs" />
+    <Compile Include="Migrations\202107292356431_InitialCreate.Designer.cs">
+      <DependentUpon>202107292356431_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107220147258_Second Migration.cs" />
-    <Compile Include="Migrations\202107220147258_Second Migration.Designer.cs">
-      <DependentUpon>202107220147258_Second Migration.cs</DependentUpon>
+    <Compile Include="Migrations\202107300001288_new.cs" />
+    <Compile Include="Migrations\202107300001288_new.Designer.cs">
+      <DependentUpon>202107300001288_new.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107220215179_Third-Migration.cs" />
-    <Compile Include="Migrations\202107220215179_Third-Migration.Designer.cs">
-      <DependentUpon>202107220215179_Third-Migration.cs</DependentUpon>
+    <Compile Include="Migrations\202108022124087_guid in locatiodb.cs" />
+    <Compile Include="Migrations\202108022124087_guid in locatiodb.Designer.cs">
+      <DependentUpon>202108022124087_guid in locatiodb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108022137436_hashset on temdb.cs" />
+    <Compile Include="Migrations\202108022137436_hashset on temdb.Designer.cs">
+      <DependentUpon>202108022137436_hashset on temdb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108022138493_hashset test.cs" />
+    <Compile Include="Migrations\202108022138493_hashset test.Designer.cs">
+      <DependentUpon>202108022138493_hashset test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108022141134_hashset locationdb test.cs" />
+    <Compile Include="Migrations\202108022141134_hashset locationdb test.Designer.cs">
+      <DependentUpon>202108022141134_hashset locationdb test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108022202233_virtual edit on lcdb.cs" />
+    <Compile Include="Migrations\202108022202233_virtual edit on lcdb.Designer.cs">
+      <DependentUpon>202108022202233_virtual edit on lcdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
@@ -79,14 +95,26 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107212139547_InitialMigration.resx">
-      <DependentUpon>202107212139547_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107292356431_InitialCreate.resx">
+      <DependentUpon>202107292356431_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107220147258_Second Migration.resx">
-      <DependentUpon>202107220147258_Second Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107300001288_new.resx">
+      <DependentUpon>202107300001288_new.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107220215179_Third-Migration.resx">
-      <DependentUpon>202107220215179_Third-Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108022124087_guid in locatiodb.resx">
+      <DependentUpon>202108022124087_guid in locatiodb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108022137436_hashset on temdb.resx">
+      <DependentUpon>202108022137436_hashset on temdb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108022138493_hashset test.resx">
+      <DependentUpon>202108022138493_hashset test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108022141134_hashset locationdb test.resx">
+      <DependentUpon>202108022141134_hashset locationdb test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108022202233_virtual edit on lcdb.resx">
+      <DependentUpon>202108022202233_virtual edit on lcdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

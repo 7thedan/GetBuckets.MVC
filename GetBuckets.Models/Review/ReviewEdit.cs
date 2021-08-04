@@ -9,10 +9,13 @@ namespace GetBuckets.Models.Review
     public class ReviewEdit
     {
         public int ReviewID { get; set; }
+        public string UserName { get; set; }
+        public string LocationName { get; set; }
         public string Address { get; set; }
         public string Comment { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }
         public bool IsRecommended { get; set; }
         public int LocationRating { get; set; }
+        public DateTimeOffset DateCreated { get; set; }
+        public DateTimeOffset? DateModified { get; set; }
     }
 }

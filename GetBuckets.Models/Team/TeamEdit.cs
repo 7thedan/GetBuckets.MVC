@@ -9,8 +9,10 @@ namespace GetBuckets.Models.Team
 {
    public class TeamEdit
     {
+        public int TeamID { get; set; }
         [Required]
         public string TeamName { get; set; }
-       
+        public string LocationName { get; set; }
+
     }
 }

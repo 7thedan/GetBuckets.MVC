@@ -3,7 +3,7 @@ namespace GetBuckets.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigration : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -12,8 +12,8 @@ namespace GetBuckets.Data.Migrations
                 c => new
                     {
                         LocationID = c.Int(nullable: false, identity: true),
-                        LocationName = c.String(),
-                        Street = c.String(),
+                        LocationName = c.String(nullable: false),
+                        Street = c.String(nullable: false),
                         City = c.String(nullable: false),
                         State = c.String(nullable: false),
                         ZipCode = c.Int(nullable: false),
@@ -42,12 +42,12 @@ namespace GetBuckets.Data.Migrations
                         Position = c.String(nullable: false),
                         Indoor = c.Boolean(nullable: false),
                         Outdoor = c.Boolean(nullable: false),
-                        TeamID = c.Int(nullable: false),
+                        TeamID = c.Int(),
                         Location = c.String(nullable: false),
                         Location_LocationID = c.Int(),
                     })
                 .PrimaryKey(t => t.PlayerID)
-                .ForeignKey("dbo.Team", t => t.TeamID, cascadeDelete: true)
+                .ForeignKey("dbo.Team", t => t.TeamID)
                 .ForeignKey("dbo.Location", t => t.Location_LocationID)
                 .Index(t => t.TeamID)
                 .Index(t => t.Location_LocationID);
@@ -57,11 +57,12 @@ namespace GetBuckets.Data.Migrations
                 c => new
                     {
                         TeamID = c.Int(nullable: false, identity: true),
+                        OwnerID = c.Guid(nullable: false),
                         TeamName = c.String(),
-                        LocationID = c.Int(nullable: false),
+                        LocationID = c.Int(),
                     })
                 .PrimaryKey(t => t.TeamID)
-                .ForeignKey("dbo.Location", t => t.LocationID, cascadeDelete: true)
+                .ForeignKey("dbo.Location", t => t.LocationID)
                 .Index(t => t.LocationID);
             
             CreateTable(
@@ -69,18 +70,18 @@ namespace GetBuckets.Data.Migrations
                 c => new
                     {
                         ReviewID = c.Int(nullable: false, identity: true),
+                        OwnerID = c.Guid(nullable: false),
                         PlayerID = c.Int(nullable: false),
                         LocationID = c.Int(nullable: false),
                         LocationRating = c.Int(nullable: false),
-                        Address = c.String(),
-                        Post = c.String(),
+                        Comment = c.String(),
                         IsRecommended = c.Boolean(nullable: false),
                         DateCreated = c.DateTimeOffset(nullable: false, precision: 7),
                         DateModified = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.ReviewID)
-                .ForeignKey("dbo.Location", t => t.LocationID, cascadeDelete: false)
-                .ForeignKey("dbo.Player", t => t.PlayerID, cascadeDelete: false)
+                .ForeignKey("dbo.Location", t => t.LocationID, cascadeDelete: true)
+                .ForeignKey("dbo.Player", t => t.PlayerID, cascadeDelete: true)
                 .Index(t => t.PlayerID)
                 .Index(t => t.LocationID);
             

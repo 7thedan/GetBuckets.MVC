@@ -9,6 +9,7 @@ namespace GetBuckets.Data
 {
     public class Location
     {
+        public Guid OwnerID { get; set; }
         [Key]
         public int LocationID { get; set; }
         [Required]
@@ -23,8 +24,7 @@ namespace GetBuckets.Data
         public string State { get; set; }
         [Required]
         public int ZipCode { get; set; }
-        [Required]
-        [Display(Name = "Name of the Location")]
+        [Display(Name = "Address")]
         public string Address
         {
             get
@@ -44,15 +44,17 @@ namespace GetBuckets.Data
         public bool Indoor { get; set; }
         [Required]
         public bool Outdoor { get; set; }
-        public ICollection<Player> ListOfPlayers { get; set; }
-        public ICollection<Team> ListOfTeams { get; set; }
-        public ICollection<Review> ListOfReviews { get; set; }
+        public virtual ICollection<Player> ListOfPlayers { get; set; }
+        public virtual ICollection<Team> ListOfTeams { get; set; }
+        public virtual ICollection <Review> ListOfReviews { get; set; }
         public Location()
         {
             ListOfPlayers = new HashSet<Player>();
             ListOfTeams = new HashSet<Team>();
             ListOfReviews = new HashSet<Review>();
         }
-       
+
+        //foreach within your servie layer. 
+        //Use one of the models list of players, team and reviews to return it the way you want the data structured. manipulate of 
     }
 }

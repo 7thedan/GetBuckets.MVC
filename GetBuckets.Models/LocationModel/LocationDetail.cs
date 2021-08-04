@@ -9,6 +9,7 @@ namespace GetBuckets.Models.LocationModel
 {
     public class LocationDetail
     {
+
         public int LocationID { get; set; }
         public string LocationName { get; set; }
         public string Address
@@ -43,6 +44,9 @@ namespace GetBuckets.Models.LocationModel
         [Required]
         [Display(Name = "Outdoor friendly?")]
         public bool Outdoor { get; set; }
+        public virtual ICollection<GetBuckets.Data.Player> ListOfPlayers { get; set; }
+        public virtual ICollection<GetBuckets.Data.Team> ListOfTeams { get; set; }
+        public virtual ICollection<GetBuckets.Data.Review> ListOfReviews { get; set; }
 
     }
 }

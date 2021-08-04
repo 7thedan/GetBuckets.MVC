@@ -24,6 +24,9 @@ namespace GetBuckets.MVC.Controllers
         }
         public ActionResult Create()
         {
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            ViewBag.TeamList = new TeamServices(userID).GetTeams();
+
             return View();
         }
 
@@ -99,9 +102,9 @@ namespace GetBuckets.MVC.Controllers
         {
             var service = CreatePlayerService();
             var detail = service.GetPlayerByID(id);
-            var model =
-                    new PlayerEdit
+            var model = new PlayerEdit
                     {
+                        PlayerID = detail.PlayerID,
                         PlayerEmail = detail.PlayerEmail,
                         Height = detail.Height,
                         Skill = detail.Skill,
@@ -109,6 +112,7 @@ namespace GetBuckets.MVC.Controllers
                         Location = detail.Location,
                         Indoor = detail.Indoor,
                         Outdoor = detail.Outdoor,
+                        TeamID = detail.TeamID
                     };
             return View(model);
         }
